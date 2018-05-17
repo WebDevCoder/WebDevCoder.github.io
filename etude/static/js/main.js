@@ -13,7 +13,7 @@ $(document).ready(function () {
     // слайдер блока рекомендованный товары
     $('.js-recomended-slider').slick({
         slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToScroll: 1,
         appendDots: '.recomended-slider__nav',
         prevArrow: '.recomended-slider__controls-prev',
         nextArrow: '.recomended-slider__controls-next',
@@ -29,7 +29,7 @@ $(document).ready(function () {
             containerWidth = $('.container').width(),
             leftPos = (windowWidth-containerWidth)/2;
         $('.index-slider ' + elem).css(pos,leftPos);
-    }
+    };
 
     // Позиционирование точек слайдера
     indexSliderElemPos('.slick-dots','left');
@@ -40,7 +40,8 @@ $(document).ready(function () {
     $(window).resize(function () {
         indexSliderElemPos('.slick-dots','left');
         indexSliderElemPos('.index-slider__controls','right');
-    })
+    });
+
 });
 $('.video-start').click(function () {
     var videoID = $(this).parent().parent().data('video-id'),
