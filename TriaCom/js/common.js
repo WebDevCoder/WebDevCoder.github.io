@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#my-menu').mmenu({
-        extensions: ['theme-dark','effect-menu-slide','pagedim-black'],
+        extensions: ['theme-dark'],
         navbar: {
             title: 'МЕНЮ'
         },
@@ -33,4 +33,11 @@ $(document).ready(function(){
             }
         }
     });
+});
+
+$(".header-nav__item-yak").on("click","a", function (event) {
+    event.preventDefault();
+    var id  = $(this).attr('href'),
+        top = $(id).offset().top;
+    $('body,html').animate({scrollTop: top}, 1500);
 });

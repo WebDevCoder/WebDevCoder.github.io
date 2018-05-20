@@ -33,12 +33,12 @@
 	<div id="my-page">
 		<div id="my-header">
 			<header>
-                <div class="container-header">
-                    <a href="#my-menu" class="hamburger hamburger--emphatic">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                    </a>
+                <a href="#my-menu" class="hamburger hamburger--emphatic" id="my-icon">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </a>
+                <div class="container-header" id="menu">
                     <ul class="header-nav__list">
                         <li class="header-nav__item">
                             <a href="index.html" class="header-nav__link">
@@ -48,35 +48,33 @@
                         <li class="header-nav__item">
                             <a href="index.html" class="header-nav__link">Главная</a>
                         </li>
-                        <li class="header-nav__item">
-                            <a href="#" class="header-nav__link">О компании</a>
+                        <li class="header-nav__item header-nav__item-yak">
+                            <a href="#yak1" class="header-nav__link">О компании</a>
                         </li>
-                        <li class="header-nav__item">
-                            <a href="#" class="header-nav__link">Команда</a>
+                        <li class="header-nav__item header-nav__item-yak">
+                            <a href="#yak2" class="header-nav__link">Команда</a>
                         </li>
-                        <li class="header-nav__item">
+                        <li class="header-nav__item header-nav__item-yak">
                             <a href="" class="header-nav__link">Проекты</a>
                         </li>
-                        <li class="header-nav__item">
-                            <a href="#" class="header-nav__link">Партнёры</a>
+                        <li class="header-nav__item header-nav__item-yak">
+                            <a href="#yak3" class="header-nav__link">Партнёры</a>
                         </li>
-                        <li class="header-nav__item">
-                            <a href="#" class="header-nav__link">Контакты</a>
+                        <li class="header-nav__item header-nav__item-yak">
+                            <a href="#yak5" class="header-nav__link">Контакты</a>
                         </li>
-                        <li class="header-nav__item">
-                            <a href="#" class="header-nav__link" id="header-call-back">Каталог</a>
+                        <li class="header-nav__item header-nav__item-yak">
+                            <a href="#yak4" class="header-nav__link" id="header-call-back">Каталог</a>
                         </li>
                     </ul>
                 </div>
 
                 <nav id="my-menu">
                     <ul>
-                        <li><a href="#">Главная</a></li>
-                        <li><a href="#">О компании</a></li>
-                        <li><a href="#">Команда</a></li>
-                        <li><a href="#">Проекты</a></li>
-                        <li><a href="#">Партнёры</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="#">Билборды</a></li>
+                        <li><a href="#">Ситилайты</a></li>
+                        <li><a href="#">Световые короба</a></li>
                     </ul>
                 </nav>
                 <div class="header-content" style="background-image: url(img/reklama.jpeg)">
@@ -105,7 +103,7 @@
 			</header>
 		</div>
 		<div id="my-content">
-            <section class="content-section__company">
+            <section class="content-section__company" id="yak1">
                 <div class="content-section__company-inner">
                     <div class="container">
                         <div class="row">
@@ -148,12 +146,46 @@
                     </div>
                 </div>
             </section>
-            <section class="content-section__team">
+            <section class="content-section__catalog" id="yak4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 tit-catalog tit-catalog-03">03</div>
+                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 tit-catalog">Наш Каталог</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 catalogy__item">
+                            <div class="catalogy__item-inner">
+                                <img src="img/billboard.png" alt="Билборды">
+                                <h3>Билборды</h3>
+                                <p>Рекламный щит (билборд)– наиболее распространенный способ наружной рекламы. Их размещают в многолюдных местах, около торговых центров, на обочинах дорог и остановках. И если билборды формата 6х3м уже давно знакомы потенциальному покупателю, щиты формата 12х6м и 15х5м являются новыми и необычными видами носителей рекламы в Гомеле.</p>
+                            </div>
+                            <button class="catalog-button">Узнать Больше</button>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 catalogy__item">
+                            <div class="catalogy__item-inner">
+                                <img src="img/sitylight.png" alt="Ситилайты">
+                                <h3>Ситилайты</h3>
+                                <p>Сити-лайт - представляет собой закрытую объемную конструкцию 1.2х1.8 с внутренней подсветкой и двухсторонним изображением. Это один из наиболее востребованных и популярных видов наружной рекламы.</p>
+                            </div>
+                            <button class="catalog-button">Узнать Больше</button>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 catalogy__item">
+                            <div class="catalogy__item-inner">
+                                <img src="img/lightBox.png" alt="Световые короба">
+                                <h3>Световые короба</h3>
+                                <p>Световые короба среднего и крупного формата приобретают все большую популярность. Как вид наружной рекламы световой короб является неотъемлемой частью городского дизайна и привлекает внимание огромного количества потенциальных клиентов.</p>
+                            </div>
+                            <button class="catalog-button">Узнать Больше</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-section__team" id="yak2">
                 <div class="tit-team">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                                <h1 class="tit-team tit-team-03">03</h1>
+                                <h1 class="tit-team tit-team-03">05</h1>
                             </div>
                             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
                                 <h1 class="tit-team">Наша команда</h1>
@@ -234,12 +266,12 @@
                     </div>
                 </div>
             </section>
-            <section class="content-section__partners" style="background-image: url(img/bg-partners.jpeg)">
+            <section class="content-section__partners" style="background-image: url(img/bg-partners.jpeg)" id="yak3">
                 <div class="content-section__partners-inner">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><h1 class="tit-partners">Наши партнёры</h1></div>
-                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><h1 class="tit-partners tit-partners-04">04</h1></div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><h1 class="tit-partners tit-partners-04">06</h1></div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Мы работали со многими зарубежными и росийскими организациями</div>
                         </div>
                     </div>
@@ -262,8 +294,44 @@
                 </div>
             </section>
         </div>
-		<div id="my-footer"></div>
+		<div id="my-footer">
+            <section class="footer" id="yak5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-lxs-12 footer__item">
+                            <div class="footer__item-inner">
+                                <p>Все права защищены</p>
+                                <p>@Пипченко Ангелина</p>
+                                <div class="footer-social">
+                                    <a href="https://vk.com/id436736757"><img src="img/vk-social-logotype.png" alt="Вконтакте"></a>
+                                    <a href="https://www.instagram.com/lina__peep/"><img src="img/instagram-logo.png" alt="Инстаграмм"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-lxs-12 footer__item">
+                            <div class="footer__item-inner">
+                                <ul class="footer-list">
+                                    <li class="footer-list__item"><a class="footer-list__link" href="index.html">Главная</a></li>
+                                    <li class="footer-list__item"><a class="footer-list__link" href="#yak1">О компании</a></li>
+                                    <li class="footer-list__item"><a class="footer-list__link" href="#yak2">Команда</a></li>
+                                    <li class="footer-list__item"><a class="footer-list__link" href="#">Проекты</a></li>
+                                    <li class="footer-list__item"><a class="footer-list__link" href="#yak3">Партнёры</a></li>
+                                    <li class="footer-list__item"><a class="footer-list__link" href="#yak4">Коталог</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-lxs-12 footer__item">
+                            <div class="footer__item-inner">
+                                <a class="footer-list__link-1" href="tel:+375232270593"><img src="img/phone-1.png" alt="телефон">+375 (232) 27-05-93</a>
+                                 <a class="footer-list__link-1" href="tel:+375232270594"><img src="img/phone-1.png" alt="телефон">+375 (232) 27-05-94</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 	</div>
+
 
 	<script src="js/scripts.min.js"></script>
 
