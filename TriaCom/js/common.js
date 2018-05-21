@@ -62,6 +62,24 @@ $(document).ready(function(){
     });
 
 });
+/////////////////////////////////////////Прелоудер и Кнопка "На верх"
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > $(this).height()){
+        $('.top').addClass('active');
+    } else {
+        $('.top').removeClass('active');
+    }
+});
+
+$('.top').click(function () {
+    $('html, body').stop().animate({scrollTop: 0}, 'slow', 'swing');
+});
+
+$(window).on('load', function () {
+    $('.preloader').delay(1000).fadeOut('slow')
+});
+
 /////////////////////////////////////////Скрипт для работы с API для страницы "Билборды"
 //Переменная для включения/отключения индикатора загрузки
 var spinner = $('.ymap-container').children('.loader');
