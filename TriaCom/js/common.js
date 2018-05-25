@@ -21,6 +21,8 @@ $(document).ready(function(){
         loop: true,
         responsiveClass: true,
         smartSpeed: 1500,
+        autoplay: true,
+        autoplayTimeout: 3000,
         responsive: {
             0: {
                 items: 1
