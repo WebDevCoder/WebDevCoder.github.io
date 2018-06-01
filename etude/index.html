@@ -1,9 +1,11 @@
 
-<!--ссыдки меню в футере--><!DOCTYPE html>
+<!--ссылки соц сетей в футере-->
+<!--ссылки способов оплаты в футере-->
+<!--ссылки меню в футере--><!DOCTYPE html>
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
-    <title>Etude</title><!--[if IE]>
+    <title>Главная</title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="">
@@ -13,38 +15,19 @@
   <body class="index-page">
     <div class="wrapper">
       <header>
-        <content>
-          <input class="hamburger" id="hamburger" type="checkbox">
-          <label class="hamburger" for="hamburger"><i></i>
-            <text>
-              <close>close</close>
-              <open>menu</open>
-            </text>
-          </label>
-          <section class="drawer-list">
-            <ul class="hamburger-nav__list">
-              <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">о нас</a></li>
-              <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">новинки</a></li>
-              <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">отзывы</a></li>
-              <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">новости</a></li>
-              <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">статьи</a></li>
-              <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">контакты</a></li>
-            </ul>
-          </section>
-        </content>
         <div class="header-top">
           <div class="container"><a class="logo header-logo header-nav__link" href="index.html"><img class="head-logo" src="static/img/svg/head-logo.png"></a>
             <div class="header-nav">
               <ul class="header-nav__list">
                 <li class="header-nav__item"><a class="header__phone header-nav__link" href="tel:375255027943">375 25 502-79-43</a></li>
-                <li class="header-nav__item"><a class="header-nav__link" href="#">обратный звонок</a></li>
+                <li class="header-nav__item"><a class="header-nav__link popup-with-form" href="#form-callback">обратный звонок</a></li>
               </ul>
               <ul class="header-nav__list">
-                <li class="header-nav__item"><a class="header-nav__link" href="javascript:void(0)">как заказать
+                <li class="header-nav__item"><a class="header-nav__link popup-with-form" href="#form-howorder">как заказать
                     <svg class="icon icon-list ">
                       <use xlink:href="static/img/svg/symbol/sprite.svg#list"></use>
                     </svg></a></li>
-                <li class="header-nav__item"><a class="header-nav__link" href="javascript:void(0)">оплата
+                <li class="header-nav__item"><a class="header-nav__link popup-with-form" href="#form-howpay">оплата
                     <svg class="icon icon-payment ">
                       <use xlink:href="static/img/svg/symbol/sprite.svg#payment"></use>
                     </svg></a></li>
@@ -64,14 +47,14 @@
                   <div class="header-nav__user-icon">
                     <svg class="icon icon-favorites ">
                       <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
-                    </svg><span class="header-nav__user-count">19</span>
+                    </svg>
                   </div><a class="header-nav__link-user" href="javascript:void(0)">избранное</a>
                 </li>
                 <li class="header-nav__item--user">
                   <div class="header-nav__user-icon">
                     <svg class="icon icon-basket ">
                       <use xlink:href="static/img/svg/symbol/sprite.svg#basket"></use>
-                    </svg><span class="header-nav__user-count">6</span>
+                    </svg>
                   </div><a class="header-nav__link-user" href="javascript:void(0)">корзина</a>
                 </li>
               </ul>
@@ -82,22 +65,70 @@
           <div class="container">
             <nav class="main-nav">
               <ul class="main-nav__list">
-                            <li class="main-nav__item"><a class="main-nav__link" href="javascript:void(0);">гитары</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="javascript:void(0);">клавишные</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="javascript:void(0);">ударные</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="javascript:void(0);">звуковое оборудование</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="javascript:void(0);">коммутация</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="javascript:void(0);">микрофоны</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">гитары</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">клавишные</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">ударные</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">звуковое оборудование</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">коммутация</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">микрофоны</a></li>
               </ul>
               <div class="header-search search">
-                <svg class="icon icon-search ">
-                  <use xlink:href="static/img/svg/symbol/sprite.svg#search"></use>
-                </svg>
+                <content>
+                  <input class="hamburger" id="hamburger" type="checkbox">
+                  <label class="hamburger" for="hamburger"><i></i>
+                    <text>
+                      <close>close</close>
+                      <open>menu</open>
+                    </text>
+                  </label>
+                  <section class="drawer-list">
+                    <ul class="hamburger-nav__list">
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="index.html">Главная</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Категории</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">новости</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Как Заказать</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Оплата</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">контакты</a></li>
+                    </ul>
+                  </section>
+                </content>
               </div>
             </nav>
           </div>
         </div>
       </header>
+      <form class="zoom-anim-dialog mfp-hide" id="form-callback">
+        <input type="hidden" name="project_name" value="Etude">
+        <input type="hidden" name="admin_email" value="webdevcoder@mail.ru">
+        <input type="hidden" name="form_subject" value="Заявка с сайта">
+        <div class="form-header">Оставить Заявку</div>
+        <p class="header-callback__text">Оставьте заявку и мы тут же с вами свяжемся</p>
+        <input class="input__callback" type="text" name="Имя" placeholder="Ваше имя..." required>
+        <input class="input__callback" type="text" name="Телефон" placeholder="Ваш телефон..." required>
+        <div class="content-center">
+          <utton class="g-btn order-button">Отправить</utton>
+        </div>
+      </form>
+      <form class="zoom-anim-dialog mfp-hide" id="form-howorder">
+        <div class="form-header">Как Заказать?</div>
+        <p class="how-order__text">1. Выберите понравившийся вам товар и добавьте его в корзину, нажав на соответствующую кнопку.</p>
+        <p class="how-order__text">2. После добавления товара в корзину вы можете продолжить выбирать музыкальные инструменты и звуковое оборудование, нажав на кнопку "В каталог", или приступить к оформлению заказа. Кнопка "В корзину".</p>
+        <p class="how-order__text">3. Перейдя в корзину, вы также можете выбрать, что делать дальше: вернуться в каталог или на главную страницу. Вы можете увеличить количество единиц каждого отдельного товара, удалить позиции или приступить к оформлению заказа.</p>
+        <p class="how-order__text">4. Чтобы оформить заказ вы можете зарегистрироваться на сайте или оформить покупку как гость, выбрав в корзине "купить в 1 клик". Преимущества регистрации - возможность получать рассылки об актуальных скидках и новостях магазина, а также возможность сохранить свои данные в Личном кабинете и не вводить их повторно при следующем заказе.</p>
+        <p class="how-order__text">5. Далее вам необходимо предоставить информацию о себе: ФИО, номер телефона и адрес электронной почты для подтверждения заказа. Пожалуйста, указывайте актуальную и достоверную информацию о себе. В противном случае заказ не будет обработан.</p>
+      </form>
+      <form class="zoom-anim-dialog mfp-hide" id="form-howpay">
+        <div class="form-header">Оплата</div>
+        <p class="how-pay__text">В СООТВЕТСТВИИ С ЗАКОНОДАТЕЛЬСТВОМ РЕСПУБЛИКИ БЕЛАРУСЬ, РАСЧЕТ ОСУЩЕСТВЛЯЕТСЯ В БЕЛОРУССКИХ РУБЛЯХ.</p>
+        <p class="how-pay__text">1. НАЛИЧНЫМИ ДЕНЬГАМИ производится при бесплатной доставке товара курьером покупателю в г. Гомеле, а также при самовывозе.</p>
+        <p class="how-pay__text">2. ПЛАСТИКОВОЙ КАРТОЙ через терминал - при бесплатной доставке товара курьером покупателю в г. Гомеле, а также при самовывозе. При оплате пластиковой картой курьеру, покупатель должен уведомить об этом заранее по телефону или в комментарии к заказу.</p>
+        <p class="how-pay__text">3. БАНКОВСКОЙ КАРТОЧКОЙ ЧЕРЕЗ ИНТЕРНЕТ:</p>
+        <p class="how-pay__text">Мы принимаем:
+          <svg class="icon icon-visa ">
+            <use xlink:href="static/img/svg/symbol/sprite.svg#visa"></use>
+          </svg>
+        </p>
+      </form>
       <div class="content">
         <section class="index-slider">
           <div class="index-slider__controls index-slider__controls-prev">
@@ -112,23 +143,23 @@
           </div>
           <div class="js-index-slider">
             <div class="index-slider__item"><img class="index-slider__img" src="static/img/content/main-slider/slide-1.jpg" alt="слайд 1">
-              <div class="index-slider__content"><span class="index-slider__title">КЛАССИЧЕСКАЯ ГИТАРА <br>STAGG</span><br><span class="index-slider__price">122,40 руб.</span><br><a class="g-btn" href="javascript:void(0)">В корзину</a>
+              <div class="index-slider__content"><span class="index-slider__title">КЛАССИЧЕСКАЯ ГИТАРА <br>STAGG</span><br><span class="index-slider__price">122,40 руб.</span>
               </div>
             </div>
             <div class="index-slider__item"><img class="index-slider__img" src="static/img/content/main-slider/slide-2.jpg" alt="слайд">
-              <div class="index-slider__content"><span class="index-slider__title">ТАРЕЛКА SABIAN <br>10'' SOLAR</span><br><span class="index-slider__price">66,00 руб.</span><br><a class="g-btn" href="javascript:void(0)">В корзину</a>
+              <div class="index-slider__content"><span class="index-slider__title">ТАРЕЛКА SABIAN <br>10'' SOLAR</span><br><span class="index-slider__price">66,00 руб.</span>
               </div>
             </div>
             <div class="index-slider__item"><img class="index-slider__img" src="static/img/content/main-slider/slide-3.jpg" alt="слайд">
-              <div class="index-slider__content"><span class="index-slider__title">САКСОФОН АЛЬТ F708 </span><br><span class="index-slider__price">1180,00 руб.</span><br><a class="g-btn" href="javascript:void(0)">В корзину</a>
+              <div class="index-slider__content"><span class="index-slider__title">САКСОФОН АЛЬТ F708 </span><br><span class="index-slider__price">1180,00 руб.</span>
               </div>
             </div>
             <div class="index-slider__item"><img class="index-slider__img" src="static/img/content/main-slider/slide-4.jpg" alt="слайд">
-              <div class="index-slider__content"><span class="index-slider__title">Синтезатор Yamaha<br>PSR-F50</span><br><span class="index-slider__price">310,00 руб.</span><br><a class="g-btn" href="javascript:void(0)">В корзину</a>
+              <div class="index-slider__content"><span class="index-slider__title">Синтезатор Yamaha<br>PSR-F50</span><br><span class="index-slider__price">310,00 руб.</span>
               </div>
             </div>
             <div class="index-slider__item"><img class="index-slider__img" src="static/img/content/main-slider/slide-5.jpg" alt="слайд">
-              <div class="index-slider__content"><span class="index-slider__title">МИКРОФОН SENNHEISER MK 4</span><br><span class="index-slider__price">758,97 руб.</span><br><a class="g-btn" href="javascript:void(0)">В корзину</a>
+              <div class="index-slider__content"><span class="index-slider__title">МИКРОФОН SENNHEISER MK 4</span><br><span class="index-slider__price">758,97 руб.</span>
               </div>
             </div>
           </div>
@@ -142,9 +173,15 @@
                     <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/guitar-1.jpg')">
                       <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Гитары</a>
                         <ul class="pic-menu-list">
-                          <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Акустика</a></li>
-                          <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Электро</a></li>
-                          <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Бас</a></li>
+                          <li class="pic-menu-list__item">
+                            <p class="pic-menu__title">Акустика</p>
+                          </li>
+                          <li class="pic-menu-list__item">
+                            <p class="pic-menu__title">Электро</p>
+                          </li>
+                          <li class="pic-menu-list__item">
+                            <p class="pic-menu__title">Бас</p>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -153,9 +190,15 @@
                     <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/keyboards-1.jpg')">
                       <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Клавишные</a>
                         <ul class="pic-menu-list">
-                          <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Синтезаторы</a></li>
-                          <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Пианино</a></li>
-                          <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Рояли</a></li>
+                          <li class="pic-menu-list__item">
+                            <p class="pic-menu__title">Синтезаторы</p>
+                          </li>
+                          <li class="pic-menu-list__item">
+                            <p class="pic-menu__title">Пианино</p>
+                          </li>
+                          <li class="pic-menu-list__item">
+                            <p class="pic-menu__title">Рояли</p>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -165,10 +208,18 @@
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/drums-1.jpg')">
                     <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Ударные</a>
                       <ul class="pic-menu-list">
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Барабаны (Акустика)</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Барабаны (Электро)</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Палочки</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Тарелки</a></li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Барабаны (Акустика)</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Барабаны (Электро)</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Палочки</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Тарелки</p>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -184,8 +235,12 @@
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/headphones-1.jpg')">
                     <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Наушники</a>
                       <ul class="pic-menu-list">
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Стерео</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Беспроводные</a></li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Стерео</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Беспроводные</p>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -194,8 +249,12 @@
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/microfone-1.jpg')">
                     <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Микрофоны</a>
                       <ul class="pic-menu-list">
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">SHURE</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">NEUMANN</a></li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">SHURE</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">NEUMANN</p>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -206,10 +265,18 @@
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/sound-equip-1.jpg')">
                     <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Звуковое оборудование</a><a class="pic-menu__title" href="javascript:void(0);"> и Коммутация</a>
                       <ul class="pic-menu-list">
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Сабвуферы</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Обработка сигнала</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">Микшерные пульты</a></li>
-                        <li class="pic-menu-list__item"><a class="pic-menu__title" href="javascript:void(0);">кейсы</a></li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Сабвуферы</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Обработка сигнала</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">Микшерные пульты</p>
+                        </li>
+                        <li class="pic-menu-list__item">
+                          <p class="pic-menu__title">кейсы</p>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -251,7 +318,6 @@
                 </div>
               </div>
             </div>
-            <div class="content-center"><a class="g-btn" href="javascript:void(0);">Все акции</a></div>
           </div>
         </section>
         <section class="recomended">
@@ -261,12 +327,12 @@
               <div class="js-recomended-slider">
                 <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-1.png">
                   <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">Гитара Электронная Ibanez</a>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Материал: </span><span class="product-prev__val">Дерево</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Гриф: </span><span class="product-prev__val">канадский клён</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">струны: </span><span class="product-prev__val">серебро(American.prod)</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Цвет: </span><span class="product-prev__val">синий(Universe)</span></div>
-                    <div class="product-prev__line-price"><span class="product-prev__price">1599 руб</span>
-                      <div class="product-price__avaliabel"><span>есть в наличии</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Материал: </span><span class="product-line-info__val">Дерево</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Гриф: </span><span class="product-line-info__val">канадский клён</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">струны: </span><span class="product-line-info__val">серебро(American.prod)</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Цвет: </span><span class="product-line-info__val">синий(Universe)</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">1599 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
                     </div>
                     <div class="product-prev__line-action">
                       <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
@@ -279,12 +345,12 @@
                 </div>
                 <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-2.png">
                   <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">УСТАНОВКА YAMAHA GIGMAKER GM2F51-52-53</a>
-                    <div class="product-prev__line-info"><span class="product-prev__key"> Малый барабан: </span><span class="product-prev__val">14” х 5,5</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Напольный том: </span><span class="product-prev__val">16” х 16”</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Том-томы: </span><span class="product-prev__val">13х9,5”, 12х9”</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Педаль: </span><span class="product-prev__val">для бас-барабана</span></div>
-                    <div class="product-prev__line-price"><span class="product-prev__price">1610 руб</span>
-                      <div class="product-price__avaliabel"><span>есть в наличии</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key"> Малый барабан: </span><span class="product-line-info__val">14” х 5,5</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Напольный том: </span><span class="product-line-info__val">16” х 16”</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Том-томы: </span><span class="product-line-info__val">13х9,5”, 12х9”</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Педаль: </span><span class="product-line-info__val">для бас-барабана</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">1610 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
                     </div>
                     <div class="product-prev__line-action">
                       <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
@@ -297,12 +363,12 @@
                 </div>
                 <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-3.png">
                   <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">ЦИФРОВОЕ ПИАНИНО KAWAI CN-34 RW</a>
-                    <div class="product-prev__line-info"><span class="product-prev__key">цифровое: </span><span class="product-prev__val">пианино</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">голосов: </span><span class="product-prev__val">256</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">цвет: </span><span class="product-prev__val">коричневый</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Размер: </span><span class="product-prev__val">138x47x89 см</span></div>
-                    <div class="product-prev__line-price"><span class="product-prev__price">4700 руб</span>
-                      <div class="product-price__avaliabel"><span>есть в наличии</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">цифровое: </span><span class="product-line-info__val">пианино</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">голосов: </span><span class="product-line-info__val">256</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">цвет: </span><span class="product-line-info__val">коричневый</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Размер: </span><span class="product-line-info__val">138x47x89 см</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">4700 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
                     </div>
                     <div class="product-prev__line-action">
                       <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
@@ -315,12 +381,12 @@
                 </div>
                 <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-4.png">
                   <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">Наушники Monster beats STN-13 </a>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Гарнитура: </span><span class="product-prev__val">Beats STN-13 (SH-13)</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Слот SD-card: </span><span class="product-prev__val">16ГБ</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Bluetooth: </span><span class="product-prev__val">2.1</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Чувст. Микрофона: </span><span class="product-prev__val">42DB</span></div>
-                    <div class="product-prev__line-price"><span class="product-prev__price">43,90 руб</span>
-                      <div class="product-price__avaliabel"><span>есть в наличии</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Гарнитура: </span><span class="product-line-info__val">Beats STN-13 (SH-13)</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Слот SD-card: </span><span class="product-line-info__val">16ГБ</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Bluetooth: </span><span class="product-line-info__val">2.1</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Чувст. Микрофона: </span><span class="product-line-info__val">42DB</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">43,90 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
                     </div>
                     <div class="product-prev__line-action">
                       <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
@@ -333,12 +399,12 @@
                 </div>
                 <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-5.png">
                   <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">МИКРОФОН SHURE SM58-LCE</a>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Диапазон: </span><span class="product-prev__val">50 Гц - 15 кГц</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Чувствит.: </span><span class="product-prev__val">1,85 мВ/Па</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Подключение: </span><span class="product-prev__val">XLR</span></div>
-                    <div class="product-prev__line-info"><span class="product-prev__key">Вес: </span><span class="product-prev__val">298 г</span></div>
-                    <div class="product-prev__line-price"><span class="product-prev__price">310 руб</span>
-                      <div class="product-price__avaliabel"><span>есть в наличии</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Диапазон: </span><span class="product-line-info__val">50 Гц - 15 кГц</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Чувствит.: </span><span class="product-line-info__val">1,85 мВ/Па</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Подключение: </span><span class="product-line-info__val">XLR</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Вес: </span><span class="product-line-info__val">298 г</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">310 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
                     </div>
                     <div class="product-prev__line-action">
                       <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
@@ -453,6 +519,7 @@
                 </div>
               </div>
             </div>
+            <div class="content-center"><a class="g-btn" href="javascript:void(0);">Все новости</a></div>
           </div>
         </section>
         <section class="subscribe">

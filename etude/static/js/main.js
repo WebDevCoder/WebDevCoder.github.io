@@ -42,7 +42,68 @@ $(document).ready(function () {
         indexSliderElemPos('.index-slider__controls','right');
     });
 
+    // слайдер страницы продукта
+    $('.js-product-gallery').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        //asNavFor: ".js-product-gallery-nav",
+        prevArrow: '.product-gallery__controls-prev',
+        nextArrow: '.product-gallery__controls-next',
+    });
+
+    $('.product-gallery__item').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile mfp-with-zoom',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1]
+        },
+        zoom: {
+            enabled: true,
+
+            duration: 300,
+            easing: 'ease-in-out',
+            opener: function(openerElement) {
+                return openerElement.is('a') ? openerElement : openerElement.find('a');
+            }
+        }
+    });
+
+    $('.popup-with-form').magnificPopup({
+        preloader: false,
+        type: 'inline',
+
+        fixedContentPos: false,
+        fixedBgPos: true,
+
+        overflowY: 'auto',
+
+        closeBtnInside: true,
+
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in',
+
+        callbacks: {
+            beforeOpen: function() {
+                if($(window).width() < 700) {
+                    this.st.focus = false;
+                } else {
+                    this.st.focus = '';
+                }
+            }
+        }
+    });
+
 });
+
+
+
+
+// Скрипт запуска видео с ютьюба
 $('.video-start').click(function () {
     var videoID = $(this).parent().parent().data('video-id'),
         videoPlayer = $(this).parent().parent().attr('id');
@@ -50,3 +111,67 @@ $('.video-start').click(function () {
         videoId: videoID
     });
 });
+
+//табы на странице товара
+
+$('.tabs-list__item').click(function () {
+    var tabName = $(this).attr('show-tab');
+    $(this).addClass('active').siblings().removeClass('active');
+    $('.tabs-content .' + tabName).addClass('active').siblings().removeClass('active');
+});
+
+///рейнтинг на странице товара
+
+function rating(elem){ //функция для небольшой оптимизации
+    var ratingLine = $('.review-stars--set .review-star');
+    ratingLine.removeClass('active'); //удаляем со всех элементов класс "active"
+    elem.addClass('active'); //по клику добавляем элементу класс "active"
+
+    for (var i =0, rLen = ratingLine.length; i < rLen; i++) { //цикл для прохождения по всем элементам
+        if($(ratingLine[i]).hasClass('active')){
+            break;
+        }
+        $(ratingLine[i]).addClass('active');
+    }
+}
+
+$('.review-stars--set .review-star').click(function () {
+    var cur = $(this), //в переменную записываем текущий элемент на который мы кликнули
+        ratingLine = $('.review-stars--set .review-star'); //в данную переменную записываем все элементы которые мы можем менять только в определённой области
+    ratingLine.removeClass('click-active'); //удаляемя со всех элементов клас "click-active"
+    rating(cur); //запуск функции
+    cur.addClass('click-active');
+});
+
+//при наведении и удалении мыши с элемента рейтинга
+
+$('.review-stars--set .review-star')
+    .mouseover(function () {
+        var cur = $(this);
+        rating(cur);
+        cur.addClass('active');
+    })
+    .mouseout(function () {
+        var ratingLine = $('.review-stars--set .review-star');
+        ratingLine.addClass('active');
+
+        for (var i = 5; i > 0; i--) {
+            if($(ratingLine[i]).hasClass('click-active')){
+                break;
+            }
+            $(ratingLine[i]).removeClass('active');
+        }
+    });
+
+$(document).on('click', '.catalog__link', function () {
+    $(this).parent().toggleClass('active');
+    var catalogTextContent = $(this).siblings();
+    if(catalogTextContent.is(':visible')){
+        catalogTextContent.slideUp();
+    }
+    else {
+        catalogTextContent.slideDown();
+    }
+});
+
+
