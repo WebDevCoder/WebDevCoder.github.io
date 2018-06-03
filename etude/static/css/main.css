@@ -912,6 +912,7 @@ header {
   font-family: Marske;
   text-transform: uppercase;
   background: #222;
+  position: relative;
 }
 .header-top .container {
   position: relative;
