@@ -21,6 +21,32 @@ $(document).ready(function () {
         customPaging: function () {
             return '<a class="recomended-slider__dot"></a>';
         },
+        responsive: [{
+
+            breakpoint: 1280,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+
+        }, {
+
+            breakpoint: 864,
+            settings: {
+                slidesToShow: 2,
+                dots: true
+            }
+
+        }, {
+
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                dots: true
+
+            }
+
+        }]
     });
 
     // Позиционирование управления слайдером
