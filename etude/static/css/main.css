@@ -3382,7 +3382,7 @@ footer {
         flex: 0;
     }
     .header-logo {
-        margin-right: 0px;
+        margin-right: 10px;
     }
     label.hamburger{
         right: 17px;
@@ -3536,10 +3536,12 @@ footer {
 @media screen and (max-width: 480px) {
     .container {
         max-width: 100%;
+        width: 100%;
         padding: 0px 10px;
     }
     .header-top .container {
         max-width: 100%;
+        width: 100%;
         padding: 10px 10px;
     }
     .header-nav__list:nth-child(3){
@@ -3548,11 +3550,8 @@ footer {
     .header-nav__list:nth-child(1){
         display: none;
     }
-    .header-nav{
-        flex: 0;
-    }
     .header-logo {
-        margin-right: 0px;
+        margin-right: 10px;
     }
     label.hamburger{
         right: 17px;
