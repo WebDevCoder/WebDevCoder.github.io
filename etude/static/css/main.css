@@ -913,6 +913,7 @@ header {
   text-transform: uppercase;
   background: #222;
   position: relative;
+    flex: 0 0 auto;
 }
 .header-top .container {
   position: relative;
