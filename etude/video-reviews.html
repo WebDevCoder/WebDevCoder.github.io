@@ -1,25 +1,22 @@
-<?php
-require "../../core/db.php";
-?>
-<!DOCTYPE html>
+
+<!--ссылки соц сетей в футере-->
+<!--ссылки способов оплаты в футере-->
+<!--ссылки меню в футере--><!DOCTYPE html>
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
-    <title>Коризна</title><!--[if IE]>
+    <title>Видео Обзоры</title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="">
-    <link rel="stylesheet" type="text/css" href="../../static/css/main.css"><!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css"><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
-  <body class="cart-page">
-    <div id="preloader">
-        <div id="loader"></div>
-    </div>
+  <body class="video-reviews-page">
     <div class="wrapper">
       <header>
         <div class="header-top">
-          <div class="container"><a class="logo header-logo header-nav__link" href="../../index.php"><img class="head-logo" src="../../static/img/svg/head-logo.png"></a>
+          <div class="container"><a class="logo header-logo header-nav__link" href="index.html"><img class="head-logo" src="static/img/svg/head-logo.png"></a>
             <div class="header-nav">
               <ul class="header-nav__list">
                 <li class="header-nav__item"><a class="header__phone header-nav__link" href="tel:375255027943">375 25 502-79-43</a></li>
@@ -28,48 +25,37 @@ require "../../core/db.php";
               <ul class="header-nav__list">
                 <li class="header-nav__item"><a class="header-nav__link popup-with-form" href="#form-howorder">как заказать
                     <svg class="icon icon-list ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#list"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#list"></use>
                     </svg></a></li>
                 <li class="header-nav__item"><a class="header-nav__link popup-with-form" href="#form-howpay">оплата
                     <svg class="icon icon-payment ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#payment"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#payment"></use>
                     </svg></a></li>
               </ul>
-                <ul class="header-nav__list">
-                    <?php if (isset($_SESSION['logged_user'])) : ?>
-                        <li class="header-nav__item"><a class="header-nav__link">Привет, <?php echo $_SESSION['logged_user']->login; ?>
-                                <svg class="icon icon-login ">
-                                    <use xlink:href="/static/img/svg/symbol/sprite.svg#login"></use>
-                                </svg></a></li>
-                        <li class="header-nav__item"><a class="header-nav__link" href="/core/logout.php">Выйти
-                                <svg class="icon icon-registration ">
-                                    <use xlink:href="/static/img/svg/symbol/sprite.svg#registration"></use>
-                                </svg></a></li>
-                    <?php else : ?>
-                        <li class="header-nav__item"><a class="header-nav__link" href="/core/login.php">Войти
-                                <svg class="icon icon-login ">
-                                    <use xlink:href="/static/img/svg/symbol/sprite.svg#login"></use>
-                                </svg></a></li>
-                        <li class="header-nav__item"><a class="header-nav__link" href="/core/signup.php">Регистрация
-                                <svg class="icon icon-registration ">
-                                    <use xlink:href="/static/img/svg/symbol/sprite.svg#registration"></use>
-                                </svg></a></li>
-                    <?php endif ; ?>
-                </ul>
+              <ul class="header-nav__list">
+                <li class="header-nav__item"><a class="header-nav__link" href="javascript:void(0)">войти
+                    <svg class="icon icon-login ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#login"></use>
+                    </svg></a></li>
+                <li class="header-nav__item"><a class="header-nav__link" href="javascript:void(0)">регистрация
+                    <svg class="icon icon-registration ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#registration"></use>
+                    </svg></a></li>
+              </ul>
               <ul class="header-nav__user">
                 <li class="header-nav__item--user">
                   <div class="header-nav__user-icon">
                     <svg class="icon icon-favorites ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#favorites"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
                     </svg>
-                  </div><a class="header-nav__link-user" href="later.php">избранное</a>
+                  </div><a class="header-nav__link-user" href="javascript:void(0)">избранное</a>
                 </li>
                 <li class="header-nav__item--user">
                   <div class="header-nav__user-icon">
                     <svg class="icon icon-basket ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#basket"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#basket"></use>
                     </svg>
-                  </div><a class="header-nav__link-user" href="cart.php">корзина</a>
+                  </div><a class="header-nav__link-user" href="cart.html">корзина</a>
                 </li>
               </ul>
             </div>
@@ -79,15 +65,12 @@ require "../../core/db.php";
           <div class="container">
             <nav class="main-nav">
               <ul class="main-nav__list">
-                            <li class="main-nav__item"><a class="main-nav__link" href="guitars-catalog.php">гитары</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="pianos-catalog.php">клавишные</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="drums-catalog.php">ударные</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="soundequip.php">звуковое оборудование</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="commutation.php">коммутация</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="microphone.php">микрофоны</a></li>
-              </ul>
-              <ul class="main-nav__list">
-                            <li class="main-nav__item"><a class="main-nav__link" href="tel:375255027943">375 (25) 502-79-43</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">гитары</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">клавишные</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">ударные</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">звуковое оборудование</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">коммутация</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">микрофоны</a></li>
               </ul>
               <div class="header-search search">
                 <content>
@@ -100,15 +83,14 @@ require "../../core/db.php";
                   </label>
                   <section class="drawer-list">
                     <ul class="hamburger-nav__list">
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="../../index.php">Главная</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="/core/login.php">Войти</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="/core/signup.php">Регистрация</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="reviews.php">Отзывы</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="news.php">Новости</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="index.html">Главная</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Войти</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Регистрация</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Отзывы</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="news.html">Новости</a></li>
                       <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-howorder">Как Заказать</a></li>
                       <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-howpay">Оплата</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-contacts">контакты</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-callback">Обратный звонок</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">контакты</a></li>
                     </ul>
                   </section>
                 </content>
@@ -117,8 +99,7 @@ require "../../core/db.php";
           </div>
         </div>
       </header>
-      <form class="zoom-anim-dialog mfp-hide" id="form-callback" method="post">
-        <div class="success"><span>Спасибо за заявку!</span></div>
+      <form class="zoom-anim-dialog mfp-hide" id="form-callback">
         <input type="hidden" name="project_name" value="Etude">
         <input type="hidden" name="admin_email" value="webdevcoder@mail.ru">
         <input type="hidden" name="form_subject" value="Заявка с сайта">
@@ -127,7 +108,7 @@ require "../../core/db.php";
         <input class="input__callback" type="text" name="Имя" placeholder="Ваше имя..." required>
         <input class="input__callback" type="text" name="Телефон" placeholder="Ваш телефон..." required>
         <div class="content-center">
-          <button class="g-btn order-button">Отправить</button>
+          <utton class="g-btn order-button">Отправить</utton>
         </div>
       </form>
       <form class="zoom-anim-dialog mfp-hide" id="form-howorder">
@@ -146,66 +127,102 @@ require "../../core/db.php";
         <p class="how-pay__text">3. БАНКОВСКОЙ КАРТОЧКОЙ ЧЕРЕЗ ИНТЕРНЕТ:</p>
         <p class="how-pay__text">Мы принимаем:
           <svg class="icon icon-visa ">
-            <use xlink:href="/static/img/svg/symbol/sprite.svg#visa"></use>
+            <use xlink:href="static/img/svg/symbol/sprite.svg#visa"></use>
           </svg>
         </p>
-      </form>
-      <form class="zoom-anim-dialog mfp-hide" id="form-contacts">
-        <div class="form-header">Контакты</div>
-        <div class="contacts__item">
-          <p><img class="contacts-img" src="../../static/img/svg/support.png" alt="контакты"><a class="contacts__link" href="tel:375255027943">375 (25) 502-79-43</a></p>
-          <p><img class="contacts-img" src="../../static/img/svg/pin.png" alt="контакты">г.Гомель Пр. Ленина 20/19</p>
-        </div>
-        <div class="map__item">
-          <div class="ymap-container">
-            <div class="loader loader-default"></div>
-            <div id="map-yandex"></div>
-          </div>
-        </div>
       </form>
       <div class="content">
         <section class="breadcrumbs">
           <div class="container">
             <ul class="breadcrumbs-list">
-              <li class="breadcrumbs-list__item"><a class="breadcrumbs-list__link" href="../../index.php">Главная</a></li>
-              <li class="breadcrumbs-list__item"><a class="breadcrumbs-list__link" href="javascript:void(0);">=></a></li>
-              <li class="breadcrumbs-list__item"><a class="breadcrumbs-list__link" href="cart.php">Корзина</a></li>
+              <li class="breadcrumbs-list__item"><a class="breadcrumbs-list__link" href="index.html">Главная</a></li>
+              <li class="breadcrumbs-list__item"><a class="breadcrumbs-list__link" href="javascript:void(0);">Видео Обзоры</a></li>
             </ul>
           </div>
         </section>
-        <div class="cart">
+        <section class="video-review">
           <div class="container">
-            <h2 class="g-section-title g-section-title-cart">Корзина</h2>
-            <!-- Загрузка товаров в корзину -->
-            <div class="main-cart"></div>
-            <div class="main-cart1"></div>
-            <div class="main-cart2"></div>
-            <div class="main-cart3"></div>
-            <div class="main-cart4"></div>
-            <div class="main-cart5"></div>
-            <div class="main-cart6"></div>
-            <div class="main-cart7"></div>
-          </div>
-        </div>
-        <div class="cart-order">
-          <div class="container">
-            <h2 class="g-section-title order-from-cart">Отправить Заказ</h2>
-            <div class="catalog-view__item50 cart-order__item">
-              <div class="catalog-view__item-line">
-                <input class="g-input g-input-order ename" type="text" placeholder="Ваше имя" id="cart-name">
+            <h2 class="g-section-title">Видеообзоры</h2>
+            <div class="video-review__content">
+              <div class="video-review__item" id="review1" data-video-id="b8yMKrA9ExM">
+                <div class="video-review__img" style="background-image:url('static/img/general/video-bg/slide-1.jpg')">
+                  <div class="video-review__play video-start">
+                    <svg class="icon icon-play-button ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#play-button"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-review__info"><span class="video-review__date">15 апреля 2018</span>
+                  <p class="video-review__link">Обзор акустической гитары MARTINEZ FAW-702</p>
+                </div>
               </div>
-              <div class="catalog-view__item-line">
-                <input class="g-input g-input-order email" type="email" placeholder="Ваш e-mail" id="cart-email">
+              <div class="video-review__item" id="review2" data-video-id="o8QiQWBc-ak">
+                <div class="video-review__img" style="background-image:url('static/img/general/video-bg/slide-2.jpg')">
+                  <div class="video-review__play video-start">
+                    <svg class="icon icon-play-button ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#play-button"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-review__info"><span class="video-review__date">16 апреля 2018</span>
+                  <p class="video-review__link">Обзор сравнение Ibanez и Jackson</p>
+                </div>
               </div>
-              <div class="catalog-view__item-line">
-                <input class="g-input g-input-order ephone" type="text" placeholder="Ваш телефон" id="cart-phone">
+            </div>
+            <div class="video-review__content">
+              <div class="video-review__item" id="review3" data-video-id="b8yMKrA9ExM">
+                <div class="video-review__img" style="background-image:url('static/img/general/video-bg/slide-2.jpg')">
+                  <div class="video-review__play video-start">
+                    <svg class="icon icon-play-button ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#play-button"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-review__info"><span class="video-review__date">15 апреля 2018</span>
+                  <p class="video-review__link">Обзор акустической гитары MARTINEZ FAW-702</p>
+                </div>
               </div>
-              <div class="content-center">
-                <button class="g-btn send-email">Отправить</button>
+              <div class="video-review__item" id="review4" data-video-id="o8QiQWBc-ak">
+                <div class="video-review__img" style="background-image:url('static/img/general/video-bg/slide-1.jpg')">
+                  <div class="video-review__play video-start">
+                    <svg class="icon icon-play-button ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#play-button"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-review__info"><span class="video-review__date">16 апреля 2018</span>
+                  <p class="video-review__link">Обзор сравнение Ibanez и Jackson</p>
+                </div>
+              </div>
+            </div>
+            <div class="video-review__content">
+              <div class="video-review__item" id="review5" data-video-id="b8yMKrA9ExM">
+                <div class="video-review__img" style="background-image:url('static/img/general/video-bg/slide-1.jpg')">
+                  <div class="video-review__play video-start">
+                    <svg class="icon icon-play-button ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#play-button"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-review__info"><span class="video-review__date">15 апреля 2018</span>
+                  <p class="video-review__link">Обзор акустической гитары MARTINEZ FAW-702</p>
+                </div>
+              </div>
+              <div class="video-review__item" id="review6" data-video-id="o8QiQWBc-ak">
+                <div class="video-review__img" style="background-image:url('static/img/general/video-bg/slide-2.jpg')">
+                  <div class="video-review__play video-start">
+                    <svg class="icon icon-play-button ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#play-button"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-review__info"><span class="video-review__date">16 апреля 2018</span>
+                  <p class="video-review__link">Обзор сравнение Ibanez и Jackson</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
       <footer>
         <div class="container">
@@ -214,19 +231,19 @@ require "../../core/db.php";
               <ul class="social-list footer-social__list">
                 <li class="social-list__item"><a class="social-list__link" href="https://vk.com/id276698275">
                     <svg class="icon icon-vk-social ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#vk-social"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#vk-social"></use>
                     </svg></a></li>
                 <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/nikita_unkind_/">
                     <svg class="icon icon-instagram-logo ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#instagram-logo"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#instagram-logo"></use>
                     </svg></a></li>
                 <li class="social-list__item"><a class="social-list__link" href="https://github.com/WebDevCoder">
                     <svg class="icon icon-github-big-logo ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#github-big-logo"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#github-big-logo"></use>
                     </svg></a></li>
                 <li class="social-list__item"><a class="social-list__link" href="https://t.me/nikita_unkind">
                     <svg class="icon icon-telegram-logo ">
-                      <use xlink:href="/static/img/svg/symbol/sprite.svg#telegram-logo"></use>
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#telegram-logo"></use>
                     </svg></a></li>
               </ul>
             </div>
@@ -240,20 +257,20 @@ require "../../core/db.php";
               <ul class="footer-nav__list">
                 <li class="footer-nav__item"><a class="popup-with-form footer-nav__link">Бренды</a></li>
                 <li class="footer-nav__item"><a class="popup-with-form footer-nav__link">ВидеоОбзоры</a></li>
-                <li class="footer-nav__item"><a class="footer-nav__link" href="news.php">Новости</a></li>
-                <li class="footer-nav__item"><a class="popup-with-form footer-nav__link" href="#form-contacts">Контакты</a></li>
+                <li class="footer-nav__item"><a class="footer-nav__link" href="news.html">Новости</a></li>
+                <li class="footer-nav__item"><a class="footer-nav__link" href="#">Контакты</a></li>
               </ul>
             </div>
             <div class="payment-nav"><span class="payment-type__title">Мы принимаем</span>
               <ul class="payment-type__list">
                 <li class="payment-type__item">
                   <svg class="icon icon-visa ">
-                    <use xlink:href="/static/img/svg/symbol/sprite.svg#visa"></use>
+                    <use xlink:href="static/img/svg/symbol/sprite.svg#visa"></use>
                   </svg>
                 </li>
                 <li class="payment-type__item">
                   <svg class="icon icon-yandex-pay-card-logo ">
-                    <use xlink:href="/static/img/svg/symbol/sprite.svg#yandex-pay-card-logo"></use>
+                    <use xlink:href="static/img/svg/symbol/sprite.svg#yandex-pay-card-logo"></use>
                   </svg>
                 </li>
               </ul>
@@ -262,9 +279,9 @@ require "../../core/db.php";
         </div>
       </footer>
     </div>
-    <script src="../../static/js/jquery.js"></script>
-    <script src="../../static/js/cart-index.js"></script>
-    <script src="../../static/js/libs.min.js"></script>
-    <script src="../../static/js/main.js"></script>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/libs.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>

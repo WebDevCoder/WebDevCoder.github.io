@@ -1,8 +1,7 @@
-<?php
-require "core/db.php";
 
-?>
-<!DOCTYPE html>
+<!--ссылки соц сетей в футере-->
+<!--ссылки способов оплаты в футере-->
+<!--ссылки меню в футере--><!DOCTYPE html>
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
@@ -14,13 +13,10 @@ require "core/db.php";
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body class="index-page">
-    <div id="preloader">
-        <div id="loader"></div>
-    </div>
     <div class="wrapper">
       <header>
         <div class="header-top">
-          <div class="container"><a class="logo header-logo header-nav__link" href="index.php"><img class="head-logo" src="static/img/svg/head-logo.png"></a>
+          <div class="container"><a class="logo header-logo header-nav__link" href="index.html"><img class="head-logo" src="static/img/svg/head-logo.png"></a>
             <div class="header-nav">
               <ul class="header-nav__list">
                 <li class="header-nav__item"><a class="header__phone header-nav__link" href="tel:375255027943">375 25 502-79-43</a></li>
@@ -37,25 +33,14 @@ require "core/db.php";
                     </svg></a></li>
               </ul>
               <ul class="header-nav__list">
-                  <?php if (isset($_SESSION['logged_user'])) : ?>
-                    <li class="header-nav__item"><a class="header-nav__link">Привет, <?php echo $_SESSION['logged_user']->login; ?>
-                        <svg class="icon icon-login ">
-                        <use xlink:href="static/img/svg/symbol/sprite.svg#login"></use>
-                        </svg></a></li>
-                    <li class="header-nav__item"><a class="header-nav__link" href="core/logout.php">Выйти
+                <li class="header-nav__item"><a class="header-nav__link" href="javascript:void(0)">войти
+                    <svg class="icon icon-login ">
+                      <use xlink:href="static/img/svg/symbol/sprite.svg#login"></use>
+                    </svg></a></li>
+                <li class="header-nav__item"><a class="header-nav__link" href="javascript:void(0)">регистрация
                     <svg class="icon icon-registration ">
                       <use xlink:href="static/img/svg/symbol/sprite.svg#registration"></use>
                     </svg></a></li>
-                  <?php else : ?>
-                  <li class="header-nav__item"><a class="header-nav__link" href="core/login.php">Войти
-                          <svg class="icon icon-login ">
-                              <use xlink:href="static/img/svg/symbol/sprite.svg#login"></use>
-                          </svg></a></li>
-                  <li class="header-nav__item"><a class="header-nav__link" href="core/signup.php">Регистрация
-                          <svg class="icon icon-registration ">
-                              <use xlink:href="static/img/svg/symbol/sprite.svg#registration"></use>
-                          </svg></a></li>
-                  <?php endif ; ?>
               </ul>
               <ul class="header-nav__user">
                 <li class="header-nav__item--user">
@@ -63,14 +48,14 @@ require "core/db.php";
                     <svg class="icon icon-favorites ">
                       <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
                     </svg>
-                  </div><a class="header-nav__link-user" href="pages/main/later.php">избранное</a>
+                  </div><a class="header-nav__link-user" href="javascript:void(0)">избранное</a>
                 </li>
                 <li class="header-nav__item--user">
                   <div class="header-nav__user-icon">
                     <svg class="icon icon-basket ">
                       <use xlink:href="static/img/svg/symbol/sprite.svg#basket"></use>
                     </svg>
-                  </div><a class="header-nav__link-user" href="pages/main/cart.php">корзина</a>
+                  </div><a class="header-nav__link-user" href="cart.html">корзина</a>
                 </li>
               </ul>
             </div>
@@ -80,15 +65,12 @@ require "core/db.php";
           <div class="container">
             <nav class="main-nav">
               <ul class="main-nav__list">
-                            <li class="main-nav__item"><a class="main-nav__link" href="pages/main/guitars-catalog.php">гитары</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="pages/main/pianos-catalog.php">клавишные</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="pages/main/drums-catalog.php">ударные</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="pages/main/soundequip.php">звуковое оборудование</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="pages/main/commutation.php">коммутация</a></li>
-                            <li class="main-nav__item"><a class="main-nav__link" href="pages/main/microphone.php">микрофоны</a></li>
-              </ul>
-              <ul class="main-nav__list">
-                            <li class="main-nav__item"><a class="main-nav__link" href="tel:375255027943">375 (25) 502-79-43</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">гитары</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">клавишные</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">ударные</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">звуковое оборудование</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">коммутация</a></li>
+                            <li class="main-nav__item"><a class="main-nav__link" href="catalog.html">микрофоны</a></li>
               </ul>
               <div class="header-search search">
                 <content>
@@ -101,15 +83,14 @@ require "core/db.php";
                   </label>
                   <section class="drawer-list">
                     <ul class="hamburger-nav__list">
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="index.php">Главная</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="core/login.php">Войти</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="core/signup.php">Регистрация</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="pages/main/reviews.php">Отзывы</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="pages/main/news.php">Новости</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="index.html">Главная</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Войти</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Регистрация</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">Отзывы</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="news.html">Новости</a></li>
                       <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-howorder">Как Заказать</a></li>
                       <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-howpay">Оплата</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-contacts">контакты</a></li>
-                      <li class="hamburger-nav__item"><a class="hamburger-nav__link popup-with-form" href="#form-callback">Обратный звонок</a></li>
+                      <li class="hamburger-nav__item"><a class="hamburger-nav__link" href="#">контакты</a></li>
                     </ul>
                   </section>
                 </content>
@@ -118,8 +99,7 @@ require "core/db.php";
           </div>
         </div>
       </header>
-      <form class="zoom-anim-dialog mfp-hide" id="form-callback" method="post">
-        <div class="success"><span>Спасибо за заявку!</span></div>
+      <form class="zoom-anim-dialog mfp-hide" id="form-callback">
         <input type="hidden" name="project_name" value="Etude">
         <input type="hidden" name="admin_email" value="webdevcoder@mail.ru">
         <input type="hidden" name="form_subject" value="Заявка с сайта">
@@ -128,7 +108,7 @@ require "core/db.php";
         <input class="input__callback" type="text" name="Имя" placeholder="Ваше имя..." required>
         <input class="input__callback" type="text" name="Телефон" placeholder="Ваш телефон..." required>
         <div class="content-center">
-          <button class="g-btn order-button">Отправить</button>
+          <utton class="g-btn order-button">Отправить</utton>
         </div>
       </form>
       <form class="zoom-anim-dialog mfp-hide" id="form-howorder">
@@ -150,19 +130,6 @@ require "core/db.php";
             <use xlink:href="static/img/svg/symbol/sprite.svg#visa"></use>
           </svg>
         </p>
-      </form>
-      <form class="zoom-anim-dialog mfp-hide" id="form-contacts">
-        <div class="form-header">Контакты</div>
-        <div class="contacts__item">
-          <p><img class="contacts-img" src="static/img/svg/support.png" alt="контакты"><a class="contacts__link" href="tel:375255027943">375 (25) 502-79-43</a></p>
-          <p><img class="contacts-img" src="static/img/svg/pin.png" alt="контакты">г.Гомель Пр. Ленина 20/19</p>
-        </div>
-        <div class="map__item">
-          <div class="ymap-container">
-            <div class="loader loader-default"></div>
-            <div id="map-yandex"></div>
-          </div>
-        </div>
       </form>
       <div class="content">
         <section class="index-slider">
@@ -206,7 +173,7 @@ require "core/db.php";
                 <div class="pic-menu__line">
                   <div class="pic-menu__25">
                     <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/guitar-1.jpg')">
-                      <div class="pic-menu__nav"><a class="pic-menu__title" href="pages/main/guitars-catalog.php">Гитары</a>
+                      <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Гитары</a>
                         <ul class="pic-menu-list">
                           <li class="pic-menu-list__item">
                             <p class="pic-menu__title">Акустика</p>
@@ -223,7 +190,7 @@ require "core/db.php";
                   </div>
                   <div class="pic-menu__25">
                     <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/keyboards-1.jpg')">
-                      <div class="pic-menu__nav"><a class="pic-menu__title" href="pages/main/pianos-catalog.php">Клавишные</a>
+                      <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Клавишные</a>
                         <ul class="pic-menu-list">
                           <li class="pic-menu-list__item">
                             <p class="pic-menu__title">Синтезаторы</p>
@@ -241,7 +208,7 @@ require "core/db.php";
                 </div>
                 <div class="pic-menu__line">
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/drums-1.jpg')">
-                    <div class="pic-menu__nav"><a class="pic-menu__title" href="pages/main/drums-catalog.php">Ударные</a>
+                    <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Ударные</a>
                       <ul class="pic-menu-list">
                         <li class="pic-menu-list__item">
                           <p class="pic-menu__title">Барабаны (Акустика)</p>
@@ -261,14 +228,14 @@ require "core/db.php";
                 </div>
               </div>
               <div class="pic-menu__item pic-menu-review" style="background-image:url('static/img/content/pic-menu/big.jpg')"><span class="pic-menu-review__title">С нами вы зазвучите на высочайшем уровне</span>
-                <p class="pic-menu-review__text">Мы изучаем мировой рынок музыкальных инструментов, выясняем потребности рынка, устанавливаем и поддерживаем контакты с известными предприятиями-изготовителями, собираем и распространяем информацию о редких музыкальных инструментах, а также представляем новинки сезона и оказываем профессиональные консультационные услуги.</p><a class="g-btn" href="pages/main/about-us.php">Узнать больше</a>
+                <p class="pic-menu-review__text">Мы изучаем мировой рынок музыкальных инструментов, выясняем потребности рынка, устанавливаем и поддерживаем контакты с известными предприятиями-изготовителями, собираем и распространяем информацию о редких музыкальных инструментах, а также представляем новинки сезона и оказываем профессиональные консультационные услуги.</p><a class="g-btn" href="about-us.html">Узнать больше</a>
               </div>
             </div>
             <div class="pic-menu__line">
               <div class="pic-menu__50">
                 <div class="pic-menu__25">
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/headphones-1.jpg')">
-                    <div class="pic-menu__nav"><a class="pic-menu__title" href="pages/main/headphones.php">Наушники</a>
+                    <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Наушники</a>
                       <ul class="pic-menu-list">
                         <li class="pic-menu-list__item">
                           <p class="pic-menu__title">Стерео</p>
@@ -282,7 +249,7 @@ require "core/db.php";
                 </div>
                 <div class="pic-menu__25">
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/microfone-1.jpg')">
-                    <div class="pic-menu__nav"><a class="pic-menu__title" href="pages/main/microphone.php">Микрофоны</a>
+                    <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Микрофоны</a>
                       <ul class="pic-menu-list">
                         <li class="pic-menu-list__item">
                           <p class="pic-menu__title">SHURE</p>
@@ -298,7 +265,7 @@ require "core/db.php";
               <div class="pic-menu__50">
                 <div class="pic-menu__line">
                   <div class="pic-menu__item" style="background-image:url('static/img/content/pic-menu/sound-equip-1.jpg')">
-                    <div class="pic-menu__nav"><a class="pic-menu__title" href="pages/main/soundequip.php">Звуковое оборудование</a><a class="pic-menu__title" href="pages/main/commutation.php"> и Коммутация</a>
+                    <div class="pic-menu__nav"><a class="pic-menu__title" href="javascript:void(0);">Звуковое оборудование</a><a class="pic-menu__title" href="javascript:void(0);"> и Коммутация</a>
                       <ul class="pic-menu-list">
                         <li class="pic-menu-list__item">
                           <p class="pic-menu__title">Сабвуферы</p>
@@ -360,84 +327,96 @@ require "core/db.php";
             <h2 class="g-section-title">Новые Поступления</h2>
             <div class="recomended-slider">
               <div class="js-recomended-slider">
-                <script src="static/js/jquery.js"></script>
-                <script>
-                    var cart = {};
-                    function NewProdIndexOut() {
-                        $.getJSON("../data/new-product-index.json",function (data) {
-                            var out='';
-                            for (var key in data){
-                                out += '<div class="product-prev">';
-                                out += `<img class="product-prev__img" src="static/img/content/products/product1/${data[key].mainPhoto1}">`;
-                                out += `<div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">${data[key].name}</a>`;
-                                out += `<div class="product-line-info"><span class="product-line-info__key">${data[key].character1Key}</span><span class="product-line-info__val">${data[key].character1Info}</span></div>`;
-                                out += `<div class="product-line-info"><span class="product-line-info__key">${data[key].character2Key}</span><span class="product-line-info__val">${data[key].character2Info}</span></div>`;
-                                out += `<div class="product-line-info"><span class="product-line-info__key">${data[key].character3Key}</span><span class="product-line-info__val">${data[key].character3Info}</span></div>`;
-                                out += `<div class="product-line-info"><span class="product-line-info__key">${data[key].character4Key}</span><span class="product-line-info__val">${data[key].character4Info}</span></div>`;
-                                out += `<div class="product-prev__line-price"><span class="product-price">${data[key].cost} руб</span>`;
-                                out += `<div class="product-avaliabel"><span>${data[key].nalichie}</span></div>`;
-                                out += '</div>';
-                                out += '<div class="product-prev__line-action">';
-                                out += `<div class="product-prev__favorite later" data-id="${key}"><a class="product-prev__favorite-link">`;
-                                out += '<svg class="icon icon-favorites ">';
-                                out += '<use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>';
-                                out += '</svg><span>В избранное</span></a></div>';
-                                out += '</div>';
-                                out += `<div class="product-prev__btn product-prev__btn-cart" data-id="${key}"><a class="g-btn">В корзину</a></div>`;
-                                out += '</div>';
-                                out += '</div>';
-                            }
-                            $('.js-recomended-slider').html(out);
-                            $('.product-prev__btn-cart').on('click', addToCartIndex);
-                            $('.later').on('click', addToLaterIndex);
-                        });
-                    }
-                    NewProdIndexOut();
-
-                    function addToLaterIndex() {
-                        var laterIndex ={};
-                        if(localStorage.getItem('laterIndex')){
-                            laterIndex = JSON.parse(localStorage.getItem('laterIndex'));
-                        }
-                        alert("Добавлено в избранное");
-                        var  id = $(this).attr('data-id');
-                        laterIndex[id]=1;
-                        localStorage.setItem('laterIndex', JSON.stringify(laterIndex));
-                    }
-
-                    function addToCartIndex() {
-                        var  id = $(this).attr('data-id');
-                        if (cart[id] == undefined) {
-                            cart[id] = 1;
-                        }
-                        else {
-                            cart[id]++;
-                        }
-                        showMiniCart();
-                        saveIndexCart();
-                    }
-                    function showMiniCart() {
-                        var out='';
-                        for (var key in cart) {
-                            out += key+'---'+cart[key]
-                        }
-                        $('.mini-cart').html(out);
-
-                    }
-                    function saveIndexCart() {
-                        localStorage.setItem('cart', JSON.stringify(cart));
-                    }
-                    function loadCartIndex() {
-                        if(localStorage.getItem('cart')){
-                            cart = JSON.parse(localStorage.getItem('cart'));
-                            showMiniCart();
-                        }
-                    }
-
-                    $(document).ready(function () {
-                        loadCartIndex();
-                    });
-                </script>
+                <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-1.png">
+                  <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">Гитара Электронная Ibanez</a>
+                    <div class="product-line-info"><span class="product-line-info__key">Материал: </span><span class="product-line-info__val">Дерево</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Гриф: </span><span class="product-line-info__val">канадский клён</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">струны: </span><span class="product-line-info__val">серебро(American.prod)</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Цвет: </span><span class="product-line-info__val">синий(Universe)</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">1599 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
+                    </div>
+                    <div class="product-prev__line-action">
+                      <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
+                                  <svg class="icon icon-favorites ">
+                                    <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
+                                  </svg><span>В избранное</span></a></div>
+                    </div>
+                    <div class="product-prev__btn"><a class="g-btn" href="javascript:void(0);">В корзину</a></div>
+                  </div>
+                </div>
+                <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-2.png">
+                  <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">УСТАНОВКА YAMAHA GIGMAKER GM2F51-52-53</a>
+                    <div class="product-line-info"><span class="product-line-info__key"> Малый барабан: </span><span class="product-line-info__val">14” х 5,5</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Напольный том: </span><span class="product-line-info__val">16” х 16”</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Том-томы: </span><span class="product-line-info__val">13х9,5”, 12х9”</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Педаль: </span><span class="product-line-info__val">для бас-барабана</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">1610 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
+                    </div>
+                    <div class="product-prev__line-action">
+                      <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
+                                  <svg class="icon icon-favorites ">
+                                    <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
+                                  </svg><span>В избранное</span></a></div>
+                    </div>
+                    <div class="product-prev__btn"><a class="g-btn" href="javascript:void(0);">В корзину</a></div>
+                  </div>
+                </div>
+                <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-3.png">
+                  <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">ЦИФРОВОЕ ПИАНИНО KAWAI CN-34 RW</a>
+                    <div class="product-line-info"><span class="product-line-info__key">цифровое: </span><span class="product-line-info__val">пианино</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">голосов: </span><span class="product-line-info__val">256</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">цвет: </span><span class="product-line-info__val">коричневый</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Размер: </span><span class="product-line-info__val">138x47x89 см</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">4700 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
+                    </div>
+                    <div class="product-prev__line-action">
+                      <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
+                                  <svg class="icon icon-favorites ">
+                                    <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
+                                  </svg><span>В избранное</span></a></div>
+                    </div>
+                    <div class="product-prev__btn"><a class="g-btn" href="javascript:void(0);">В корзину</a></div>
+                  </div>
+                </div>
+                <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-4.png">
+                  <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">Наушники Monster beats STN-13 </a>
+                    <div class="product-line-info"><span class="product-line-info__key">Гарнитура: </span><span class="product-line-info__val">Beats STN-13 (SH-13)</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Слот SD-card: </span><span class="product-line-info__val">16ГБ</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Bluetooth: </span><span class="product-line-info__val">2.1</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Чувст. Микрофона: </span><span class="product-line-info__val">42DB</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">43,90 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
+                    </div>
+                    <div class="product-prev__line-action">
+                      <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
+                                  <svg class="icon icon-favorites ">
+                                    <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
+                                  </svg><span>В избранное</span></a></div>
+                    </div>
+                    <div class="product-prev__btn"><a class="g-btn" href="javascript:void(0);">В корзину</a></div>
+                  </div>
+                </div>
+                <div class="product-prev"><img class="product-prev__img" src="static/img/content/products/product1/image-5.png">
+                  <div class="product-prev__content"><a class="product-prev__title" href="javascript:void(0);">МИКРОФОН SHURE SM58-LCE</a>
+                    <div class="product-line-info"><span class="product-line-info__key">Диапазон: </span><span class="product-line-info__val">50 Гц - 15 кГц</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Чувствит.: </span><span class="product-line-info__val">1,85 мВ/Па</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Подключение: </span><span class="product-line-info__val">XLR</span></div>
+                    <div class="product-line-info"><span class="product-line-info__key">Вес: </span><span class="product-line-info__val">298 г</span></div>
+                    <div class="product-prev__line-price"><span class="product-price">310 руб</span>
+                      <div class="product-avaliabel"><span>есть в наличии</span></div>
+                    </div>
+                    <div class="product-prev__line-action">
+                      <div class="product-prev__favorite"><a class="product-prev__favorite-link" href="javascript:void(0);">
+                                  <svg class="icon icon-favorites ">
+                                    <use xlink:href="static/img/svg/symbol/sprite.svg#favorites"></use>
+                                  </svg><span>В избранное</span></a></div>
+                    </div>
+                    <div class="product-prev__btn"><a class="g-btn" href="javascript:void(0);">В корзину</a></div>
+                  </div>
+                </div>
               </div>
               <div class="recomended-slider__nav">
                 <div class="recomended-slider__controls recomended-slider__controls-prev">
@@ -510,7 +489,7 @@ require "core/db.php";
                 </div>
               </div>
             </div>
-            <div class="content-center"><a class="g-btn" href="pages/main/video-reviews.php">Показать ещё</a></div>
+            <div class="content-center"><a class="g-btn" href="video-reviews.html">Показать ещё</a></div>
           </div>
         </section>
         <section class="news">
@@ -546,7 +525,7 @@ require "core/db.php";
                 </div>
               </div>
             </div>
-            <div class="content-center"><a class="g-btn" href="pages/main/news.php">Все новости</a></div>
+            <div class="content-center"><a class="g-btn" href="news.html">Все новости</a></div>
           </div>
         </section>
         <section class="subscribe">
@@ -554,13 +533,12 @@ require "core/db.php";
             <h2 class="g-section-title">Подпишитесь на новости</h2>
             <div class="subscribe-form__wrap">
               <div class="subscribe-form__content">
-                <form class="subscribe-form" id="signup-form" method="post" action="#">
+                <form class="subscribe-form">
                   <label class="g-label" for="subscribe-email">Ваш e-mail</label>
-                  <input class="g-input g-input-email" type="email" name="email" id="email">
+                  <input class="g-input g-input-email" type="email" name="email" id="subscribe-email">
                   <input class="g-btn-subscribe" type="submit" value="Подписаться">
                 </form>
-
-                <div class="subscribe-text" id="results">Подпишитесь на наши новости и акции. Вы будете одними из первых узнавать о новых поступлениях, получать промо-коды для участия в акциях и распродажах.</div>
+                <p class="subscribe-text">Подпишитесь на наши новости и акции. Вы будете одними из первых узнавать о новых поступлениях, получать промо-коды для участия в акциях и распродажах.</p>
               </div>
             </div>
           </div>
@@ -599,8 +577,8 @@ require "core/db.php";
               <ul class="footer-nav__list">
                 <li class="footer-nav__item"><a class="popup-with-form footer-nav__link">Бренды</a></li>
                 <li class="footer-nav__item"><a class="popup-with-form footer-nav__link">ВидеоОбзоры</a></li>
-                <li class="footer-nav__item"><a class="footer-nav__link" href="pages/main/news.php">Новости</a></li>
-                <li class="footer-nav__item"><a class="popup-with-form footer-nav__link" href="#form-contacts">Контакты</a></li>
+                <li class="footer-nav__item"><a class="footer-nav__link" href="news.html">Новости</a></li>
+                <li class="footer-nav__item"><a class="footer-nav__link" href="#">Контакты</a></li>
               </ul>
             </div>
             <div class="payment-nav"><span class="payment-type__title">Мы принимаем</span>
@@ -621,9 +599,9 @@ require "core/db.php";
         </div>
       </footer>
     </div>
+    <script src="static/js/jquery.js"></script>
     <script src="static/js/libs.min.js"></script>
     <script src="static/js/main.js"></script>
-    <script src="static/js/news-sub.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>
