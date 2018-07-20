@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    setTimeout(function() {
     // Слайдер главной страницы
     $('.js-index-slider').slick({
         prevArrow: '.index-slider__controls-prev',
@@ -124,8 +125,33 @@ $(document).ready(function () {
         }
     });
 
-});
+    //фукнция обратной связи
+    $("form#form-callback").submit(function() { //Change
+        var th = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/../core/mail.php", //Change
+            data: th.serialize()
+        }).done(function() {
+            $(th).find('.success').addClass('active').css('display', 'flex').hide().fadeIn();
+            setTimeout(function() {
+                $(th).find('.success').removeClass('active').fadeOut();
+                th.trigger("reset");
+            }, 1500);
+        });
+        return false;
+    });
 
+    //функци отправки коментариев
+
+
+    $('.tabs-list__item').click(function () {
+        var tabName = $(this).attr('show-tab');
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.tabs-content .' + tabName).addClass('active').siblings().removeClass('active');
+    });
+    }, 300);
+});
 
 
 
@@ -138,56 +164,7 @@ $('.video-start').click(function () {
     });
 });
 
-//табы на странице товара
 
-$('.tabs-list__item').click(function () {
-    var tabName = $(this).attr('show-tab');
-    $(this).addClass('active').siblings().removeClass('active');
-    $('.tabs-content .' + tabName).addClass('active').siblings().removeClass('active');
-});
-
-///рейнтинг на странице товара
-
-function rating(elem){ //функция для небольшой оптимизации
-    var ratingLine = $('.review-stars--set .review-star');
-    ratingLine.removeClass('active'); //удаляем со всех элементов класс "active"
-    elem.addClass('active'); //по клику добавляем элементу класс "active"
-
-    for (var i =0, rLen = ratingLine.length; i < rLen; i++) { //цикл для прохождения по всем элементам
-        if($(ratingLine[i]).hasClass('active')){
-            break;
-        }
-        $(ratingLine[i]).addClass('active');
-    }
-}
-
-$('.review-stars--set .review-star').click(function () {
-    var cur = $(this), //в переменную записываем текущий элемент на который мы кликнули
-        ratingLine = $('.review-stars--set .review-star'); //в данную переменную записываем все элементы которые мы можем менять только в определённой области
-    ratingLine.removeClass('click-active'); //удаляемя со всех элементов клас "click-active"
-    rating(cur); //запуск функции
-    cur.addClass('click-active');
-});
-
-//при наведении и удалении мыши с элемента рейтинга
-
-$('.review-stars--set .review-star')
-    .mouseover(function () {
-        var cur = $(this);
-        rating(cur);
-        cur.addClass('active');
-    })
-    .mouseout(function () {
-        var ratingLine = $('.review-stars--set .review-star');
-        ratingLine.addClass('active');
-
-        for (var i = 5; i > 0; i--) {
-            if($(ratingLine[i]).hasClass('click-active')){
-                break;
-            }
-            $(ratingLine[i]).removeClass('active');
-        }
-    });
 
 $(document).on('click', '.catalog__link', function () {
     $(this).parent().toggleClass('active');
@@ -199,5 +176,117 @@ $(document).on('click', '.catalog__link', function () {
         catalogTextContent.slideDown();
     }
 });
+
+//Переменная для включения/отключения индикатора загрузки
+var spinner = $('.ymap-container').children('.loader');
+//Переменная для определения была ли хоть раз загружена Яндекс.Карта (чтобы избежать повторной загрузки при наведении)
+var check_if_load = false;
+//Необходимые переменные для того, чтобы задать координаты на Яндекс.Карте
+var myMapTemp, myPlacemarkTemp;
+//Функция создания карты сайта и затем вставки ее в блок с идентификатором "map-yandex"
+function init () {
+    var myMapTemp = new ymaps.Map("map-yandex", {
+        center: [52.427263, 31.002585], // координаты центра на карте
+        zoom: 16, // коэффициент приближения карты
+        controls: ['zoomControl', 'fullscreenControl'] // выбираем только те функции, которые необходимы при использовании
+    });
+
+    myMapTemp.geoObjects
+        .add(new ymaps.Placemark([52.427263, 31.002585], {
+            iconCaption: 'Etude'
+        }, {
+            preset: 'islands#icon',
+            iconColor: '#008000'
+        }))
+
+    // помещаем флажок на карту
+    // Получаем первый экземпляр коллекции слоев, потом первый слой коллекции
+    var layer = myMapTemp.layers.get(0).get(0);
+
+    // Решение по callback-у для определния полной загрузки карты
+    waitForTilesLoad(layer).then(function() {
+        // Скрываем индикатор загрузки после полной загрузки карты
+        spinner.removeClass('is-active');
+    });
+}
+// Функция для определения полной загрузки карты (на самом деле проверяется загрузка тайлов)
+function waitForTilesLoad(layer) {
+    return new ymaps.vow.Promise(function (resolve, reject) {
+        var tc = getTileContainer(layer), readyAll = true;
+        tc.tiles.each(function (tile, number) {
+            if (!tile.isReady()) {
+                readyAll = false;
+            }
+        });
+        if (readyAll) {
+            resolve();
+        } else {
+            tc.events.once("ready", function() {
+                resolve();
+            });
+        }
+    });
+}
+function getTileContainer(layer) {
+    for (var k in layer) {
+        if (layer.hasOwnProperty(k)) {
+            if (
+                layer[k] instanceof ymaps.layer.tileContainer.CanvasContainer
+                || layer[k] instanceof ymaps.layer.tileContainer.DomContainer
+            ) {
+                return layer[k];
+            }
+        }
+    }
+    return null;
+}
+// Функция загрузки API Яндекс.Карт по требованию (в нашем случае при наведении)
+function loadScript(url, callback){
+    var script = document.createElement("script");
+    if (script.readyState){  // IE
+        script.onreadystatechange = function(){
+            if (script.readyState == "loaded" ||
+                script.readyState == "complete"){
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else {  // Другие браузеры
+        script.onload = function(){
+            callback();
+        };
+    }
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+// Основная функция, которая проверяет когда мы навели на блок с классом "ymap-container"
+var ymap = function() {
+    $('.ymap-container').mouseenter(function(){
+            if (!check_if_load) { // проверяем первый ли раз загружается Яндекс.Карта, если да, то загружаем
+
+                // Чтобы не было повторной загрузки карты, мы изменяем значение переменной
+                check_if_load = true;
+
+                // Показываем индикатор загрузки до тех пор, пока карта не загрузится
+                spinner.addClass('is-active');
+
+                // Загружаем API Яндекс.Карт
+                loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;loadByRequire=1", function(){
+                    // Как только API Яндекс.Карт загрузились, сразу формируем карту и помещаем в блок с идентификатором "map-yandex"
+                    ymaps.load(init);
+                });
+            }
+        }
+    );
+}
+$(function() {
+    //Запускаем основную функцию
+    ymap();
+});
+
+$(window).on('load', function () {
+    $('#preloader').delay(500).fadeOut('slow')
+});
+
 
 
